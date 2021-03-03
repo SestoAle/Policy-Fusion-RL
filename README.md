@@ -3,7 +3,7 @@
 This repository is intended as **Supplementary Maetrials**
 to the paper [Titolo](link del titolo).
 
-<img src="https://imgur.com/JjvVzZr.png" width="500">
+<img src="https://imgur.com/JjvVzZr.png" width="400">
 
 ### Prerequisites
 * The code was tested with **Python v3.6**.
