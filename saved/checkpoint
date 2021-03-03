@@ -1,0 +1,2 @@
+model_checkpoint_path: "dmlab_box_ft"
+all_model_checkpoint_paths: "dmlab_box_ft"
