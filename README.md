@@ -3,6 +3,8 @@
 This repository is intended as **Supplementary Maetrials**
 to the paper [Titolo](link del titolo).
 
+![Teasing image](https://imgur.com/JjvVzZr)
+
 ### Prerequisites
 * The code was tested with **Python v3.6**.
 * To install all required packages:
