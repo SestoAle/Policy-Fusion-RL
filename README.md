@@ -6,7 +6,7 @@ to the paper [Titolo](link del titolo).
 <br/>
 
 <p align="center">
-    <img src="https://imgur.com/JjvVzZr.png" width="300">
+    <img src="https://i.imgur.com/pbwR4iE.png" width="300">
 </p>
 
 ### Prerequisites
