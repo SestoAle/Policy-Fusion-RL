@@ -1,0 +1,13 @@
+#
+####### requirements.txt #######
+#
+###### Requirements for Demonstration-efficient AIRL ######
+#
+# install with:
+# pip install -r requirements.txt
+#
+
+matplotlib
+tensorflow==2.0.0
+tensorflow_probability==0.8
+./gym-miniworld/
