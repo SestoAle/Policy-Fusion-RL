@@ -30,7 +30,7 @@ refer to the same names of the paper.
   ```
    python test_ensemble.py -mn=mini_box,mini_ball -em=ew
   ```  
-### Training agents from scratch
+### Train agents from scratch
 You can also train agents from scratch with either *'ball', 'box'* 
 or *'complete'* reward.
   ```
