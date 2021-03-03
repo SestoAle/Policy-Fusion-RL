@@ -3,9 +3,11 @@
 This repository is intended as **Supplementary Maetrials**
 to the paper [Titolo](link del titolo).
 
+
+
 <p align="center">
-    <img src="https://imgur.com/JjvVzZr.png" width="350">
-<\p>
+    <img src="https://imgur.com/JjvVzZr.png" width="300">
+</p>
 
 ### Prerequisites
 * The code was tested with **Python v3.6**.
