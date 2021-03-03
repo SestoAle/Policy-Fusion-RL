@@ -3,7 +3,7 @@
 This repository is intended as **Supplementary Maetrials**
 to the paper [Titolo](link del titolo).
 
-
+<br/>
 
 <p align="center">
     <img src="https://imgur.com/JjvVzZr.png" width="300">
