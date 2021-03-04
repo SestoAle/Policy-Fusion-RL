@@ -6,7 +6,10 @@ to the paper [Titolo](link del titolo).
 <br/>
 
 <p align="center">
-    <img src="https://i.imgur.com/AaDQkrQ.png" width="350">
+    <figure>
+        <img src="https://i.imgur.com/AaDQkrQ.png" width="350">
+        <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+    </figure>
 </p>
 
 ### Prerequisites
