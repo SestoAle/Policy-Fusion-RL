@@ -31,7 +31,7 @@ The agents are trained with rewards:
   ```  
 
 
-You can choose between *'mp', 'pp', 'et'* or 'ew'. The names
+You can choose between *'mp', 'pp', 'et'* or *'ew'*. The names
 refer to the same names of the paper.
   ```
    python test_ensemble.py -mn=mini_box,mini_ball -em=ew
