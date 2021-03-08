@@ -13,7 +13,7 @@ to the paper [Titolo](link del titolo).
 * The code was tested with **Python v3.6**.
 * To install all required packages:
     ```
-   cd ensemble_method
+   cd ensemble_rl
    pip install -r requirements.txt
     ```  
     
