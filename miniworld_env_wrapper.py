@@ -5,7 +5,7 @@ import math
 
 eps = 1e-12
 # Simple wrapper for using MiniWorld with my PPO implementation
-class DMLab:
+class Miniworld:
     def __init__(self, with_graphics=False, name='MiniWorld-PickupObjs-v0', max_episode_timesteps=400, reward_type='complete'):
         # Whether to render the game or not
         self.with_graphics = with_graphics

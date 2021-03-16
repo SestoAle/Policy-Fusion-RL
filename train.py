@@ -4,7 +4,7 @@ import os
 import tensorflow as tf
 import argparse
 from reward_model.reward_model import RewardModel
-from miniworld_env_wrapper import DMLab
+from miniworld_env_wrapper import Miniworld
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
@@ -72,7 +72,7 @@ with graph.as_default():
     sess.run(init)
 
 # Open the environment with all the desired flags
-env = DMLab(reward_type=args.reward_type, with_graphics=False)
+env = Miniworld(reward_type=args.reward_type, with_graphics=False)
 
 # If we want to use IRL, create a reward model
 reward_model = None
