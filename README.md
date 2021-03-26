@@ -1,4 +1,4 @@
-# Titolo
+# Policy Fusion for Adaptive Game Agents with Designer-Centered Learning
 
 This repository is intended as **Supplementary Maetrials**
 to the paper [Titolo](link del titolo).
