@@ -1,7 +1,7 @@
 # Policy Fusion for Adaptive and Customizable Reinforcement Learning Agents
 
 This repository is intended as **Supplementary Maetrials**
-to the paper [Policy Fusion for Adaptive and Customizable Reinforcement Learning Agents](Policy Fusion for Adaptive and Customizable Reinforcement Learning Agents).
+to the paper **Policy Fusion for Adaptive and Customizable Reinforcement Learning Agents**.
 
 <br/>
 
