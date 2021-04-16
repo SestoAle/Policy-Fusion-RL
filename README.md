@@ -36,7 +36,7 @@ The agents are trained with rewards:
 You can choose between *'mp', 'pp', 'et'* or *'ew'*. The names
 refer to the same names of the paper.
   ```
-   python test_fusion.py -mn=mini_box,mini_ball -em=ew
+   python test_fusion.py -mn=mini_box,mini_ball -fm=ew
   ```  
 ### Train agents from scratch
 You can also train agents from scratch with either *'ball', 'box'* 
