@@ -8,5 +8,6 @@
 #
 
 matplotlib
+seaborn
 tensorflow==2.0.0
 tensorflow_probability==0.8
