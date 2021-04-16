@@ -13,7 +13,7 @@ to the paper **Policy Fusion for Adaptive and Customizable Reinforcement Learnin
 * The code was tested with **Python v3.6**.
 * To install all required packages:
     ```
-   cd policy_fusion_rl
+   cd Policy-Fusion-RL
    pip install -r requirements.txt
    # Install the modified version of miniworld
    pip install -e gym_miniworld/
