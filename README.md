@@ -6,7 +6,7 @@ to the paper **Policy Fusion for Adaptive and Customizable Reinforcement Learnin
 <br/>
 
 <p align="center">
-    <img src="https://i.imgur.com/FTE9Jfd.png" width="800">
+    <img src="https://i.imgur.com/YeKuaOQ.png" width="800">
 </p>
 
 ### Prerequisites
