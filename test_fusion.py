@@ -5,7 +5,7 @@ import tensorflow_probability as tfp
 import time
 import tensorflow as tf
 import argparse
-from miniworld_env_wrapper import DMLab
+from miniworld_env_wrapper import Miniworld
 import numpy as np
 import json
 import re
@@ -24,11 +24,11 @@ if len(physical_devices) > 0:
 
 # Parse arguments for training
 parser = argparse.ArgumentParser()
-parser.add_argument('-mn', '--model-name', help="The name of the model", default='dmlab')
+parser.add_argument('-mn', '--model-name', help="The name of the model", default='mini_box')
 parser.add_argument('-mt', '--max-timesteps', help="Max timestep per episode", default=400)
 
 # Test reward models
-parser.add_argument('-em', '--ensemble-mode', help="IRL", choices=['mp', 'pp', 'et', 'ew'], default="ew")
+parser.add_argument('-fm', '--fusion-mode', help="IRL", choices=['mp', 'pp', 'et', 'ew'], default="ew")
 parser.add_argument('-t', '--temperatures', help="IRL", default="1.0,1.0,1.0")
 parser.add_argument('-sn', '--save-name', help="The name for save the results", default=None)
 
@@ -65,10 +65,10 @@ if __name__ == "__main__":
     curriculum = None
 
     # Total episode of training
-    total_episode = 10
+    total_episode = 100
 
     # Open the environment with all the desired flags
-    env = DMLab(reward_type='box')
+    env = Miniworld(reward_type='box', )
     # Load the agents
     agents = []
     models = args.model_name.split(",")
@@ -84,7 +84,7 @@ if __name__ == "__main__":
             agents.append(agent)
 
     if len(models) == 1:
-        args.ensemble_mode = 'mp'
+        args.fusion_mode = 'mp'
 
     # Create the reward models
     reward_models = []
@@ -113,9 +113,9 @@ if __name__ == "__main__":
             action = 0
             while not done:
 
-                if args.ensemble_mode == 'pp':
+                if args.fusion_mode == 'pp':
                     total_probs = np.ones(5)
-                elif args.ensemble_mode == 'mp':
+                elif args.fusion_mode == 'mp':
                     total_probs = np.zeros(5)
 
                 main_entropy = np.inf
@@ -125,39 +125,40 @@ if __name__ == "__main__":
                 for (i, agent) in enumerate(agents):
                     _, _, probs = agent.eval([state])
                     probs = probs[0]
-                    if args.ensemble_mode == 'pp':
+                    if args.fusion_mode == 'pp':
 
                         probs = boltzmann(probs, temperatures[i])
                         total_probs *= probs
-                    elif args.ensemble_mode == 'mp':
+                    elif args.fusion_mode == 'mp':
                         probs = boltzmann(probs, temperatures[i])
                         total_probs += probs
-                    elif args.ensemble_mode == 'et':
+                    elif args.fusion_mode == 'et':
                         if i == 0:
                             main_entropy = entropy(probs)
                             continue
                         if entropy(probs) < min_entropy:
                             min_entropy = entropy(probs)
                             min_entropy_idx = i
-                    elif args.ensemble_mode == 'ew':
+                    elif args.fusion_mode == 'ew':
                         if i == 0:
                             main_entropy = entropy(probs)
                             continue
                         if entropy(probs) < min_entropy:
                             min_entropy = entropy(probs)
                             min_entropy_idx = i
-                if args.ensemble_mode == 'mp':
+                if args.fusion_mode == 'mp':
                     total_probs /= (num_reward_models + 1)
 
-                if args.ensemble_mode == 'et':
+                if args.fusion_mode == 'et':
                     if min_entropy < main_entropy + 5.0:
                         total_probs = boltzmann(agents[min_entropy_idx].eval([state])[2][0], 1.0)
                         action = np.argmax(np.random.multinomial(1, total_probs))
                     else:
                         total_probs = boltzmann(agents[0].eval([state])[2][0], 1.0)
                         action = np.argmax(np.random.multinomial(1, total_probs))
-                elif args.ensemble_mode == 'ew':
+                elif args.fusion_mode == 'ew':
                     entropies.append(min_entropy)
+                    
                     min_entropy = (min_entropy - 0.0) / (1.61 - 0.0)
                     min_entropy = np.clip(min_entropy, 0, 1)
                     main_probs = agents[0].eval([state])[2] * min_entropy
@@ -199,7 +200,7 @@ if __name__ == "__main__":
         if args.save_name is not None:
             print("Saving the experiment..")
             json_str = json.dumps(all_step_rewards, cls=NumpyEncoder)
-            f = open('reward_experiments/{}_{}.json'.format(args.save_name,args.ensemble_mode), "w")
+            f = open('reward_experiments/{}_{}.json'.format(args.save_name,args.fusion_mode), "w")
             f.write(json_str)
             f.close()
             print("Experiment saved with name {}!".format(args.save_name))

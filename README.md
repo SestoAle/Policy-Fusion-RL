@@ -15,6 +15,8 @@ to the paper **Policy Fusion for Adaptive and Customizable Reinforcement Learnin
     ```
    cd policy_fusion_rl
    pip install -r requirements.txt
+   # Install the modified version of miniworld
+   pip install -e gym_miniworld/
     ```  
     
 ## Reproducing Results
