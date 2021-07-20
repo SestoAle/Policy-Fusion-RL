@@ -9,10 +9,6 @@ to the paper **Policy Fusion for Adaptive and Customizable Reinforcement Learnin
     <img src="https://i.imgur.com/YeKuaOQ.png" width="800">
 </p>
 
-<p align="center">
-    <img src="fusion.gif" width="60%">
-</p>
-
 ### Prerequisites
 * The code was tested with **Python v3.6**.
 * To install all required packages:
@@ -58,3 +54,8 @@ in the same shape of the ones in the paper using:
   ```
    python plot_continual.py
   ```  
+ 
+ ## Example
+ <p align="center">
+    <img src="fusion.gif" width="60%">
+</p>
